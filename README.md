@@ -2,6 +2,9 @@
 
 AI-assisted shopping app with Firebase + MongoDB, optional voice transcription, and checkout integrations.
 
+## Take a look
+- Live site: https://aishopping-475ab.web.app/
+
 > Status: work in progress. If the GitHub repo currently shows only config/examples, the app source code hasn’t been pushed yet (make sure you push `client/` + `server/` **without** `node_modules/`).
 
 ## Highlights
