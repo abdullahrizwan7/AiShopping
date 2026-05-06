@@ -1,29 +1,41 @@
+<div align="center">
+
 # AiShopping (Powered Shopping)
 
 AI-assisted shopping app with Firebase + MongoDB, optional voice transcription, and checkout integrations.
 
+[![Live Demo](https://img.shields.io/badge/Take%20a%20look-Live%20Demo-2ea44f?style=for-the-badge)](https://aishopping-475ab.web.app/)
+
+<p>
+  <a href="#highlights">Highlights</a> •
+  <a href="#repository-layout">Repo layout</a> •
+  <a href="#setup">Setup</a> •
+  <a href="#environment-variables">Env</a> •
+  <a href="#roadmap">Roadmap</a>
+</p>
+
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+
+</div>
+
+> Status: work in progress. If your GitHub view shows only config/examples, ensure you’ve pushed the actual `client/` + `server/` source (excluding `node_modules/`).
+
 ## Take a look
 - Live site: https://aishopping-475ab.web.app/
 
-> Status: work in progress. If the GitHub repo currently shows only config/examples, the app source code hasn’t been pushed yet (make sure you push `client/` + `server/` **without** `node_modules/`).
-
 ## Highlights
-- Firebase (client) + Firebase Admin (server) support
-- MongoDB-backed product/cart storage (`MONGO_URI`)
-- AI helpers (Gemini / OpenAI) for voice transcription and assistant flows
-- Razorpay payment keys supported via env
-- Optional order emails via SMTP
+- Firebase client + Firebase Admin (server)
+- MongoDB-backed data (`MONGO_URI`)
+- AI integrations (Gemini / OpenAI) for assistant & transcription flows
+- Razorpay-ready env keys (optional)
+- SMTP email support for orders (optional)
 
 ## Repository layout
 - `client/` – Vite frontend (Firebase config via `VITE_*`)
 - `server/` – Node backend (API on `PORT`, DB + AI keys)
-
-## Tech stack (planned/expected)
-- Frontend: Vite + Firebase (Auth/Firestore/Storage/Analytics as configured)
-- Backend: Node.js API + Firebase Admin + MongoDB
-- AI: Gemini (primary in template) with optional OpenAI fallback
-- Payments: Razorpay (optional)
-- Email: SMTP (optional)
 
 ## Setup
 ### 1) Install dependencies
@@ -45,21 +57,12 @@ Client (`client/.env`):
 - Demo checkout labels: `VITE_DEMO_UPI_ID`, `VITE_DEMO_UPI_NAME`
 
 Server (`server/.env`):
-- Server: `PORT` (default in example: `5050`)
+- Server: `PORT` (example default: `5050`)
 - Data: `MONGO_URI`, `DEFAULT_CART_ID`, `PRODUCT_DATA_SOURCE`, `PRODUCT_FETCH_TIMEOUT_MS`
 - Firebase Admin: `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`
 - AI: `GEMINI_API_KEY` (and `GEMINI_TRANSCRIBE_MODEL`) or `OPENAI_API_KEY` (and `OPENAI_MODEL` / `OPENAI_TRANSCRIBE_MODEL`)
-- Payments: `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`
-- Email: `SEND_ORDER_EMAILS` + `SMTP_*`
-
-Fill in `server/.env`:
-- `MONGO_URI`
-- Firebase Admin service account (`FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`)
-- One of:
-  - `GEMINI_API_KEY` (recommended for the current template), or
-  - `OPENAI_API_KEY` (optional fallback)
-- (Optional) Razorpay keys: `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`
-- (Optional) SMTP settings if `SEND_ORDER_EMAILS=true`
+- Payments: `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET` (optional)
+- Email: `SEND_ORDER_EMAILS` + `SMTP_*` (optional)
 
 ### 3) Run (dev)
 ```bash
